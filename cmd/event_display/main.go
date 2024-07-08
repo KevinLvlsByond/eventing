@@ -143,7 +143,7 @@ type LoggableRequest struct {
 }
 
 func logRequest(req *http.Request) {
-	b, err := json.MarshalIndent(toReq(req), "", "  ")
+	b, err := json.Marshal(toReq(req), "", "  ")
 	if err != nil {
 		log.Println("failed to marshal request", err)
 	}
