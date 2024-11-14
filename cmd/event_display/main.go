@@ -62,20 +62,14 @@ Data,
 
 // display prints the given Event in a human-readable format.
 func display(event cloudevents.Event) {
-	pretty, _ := strconv.ParseBool(os.Getenv("PRETTY_PRINT_EVENTS"))
 	//convert event to raw json
-	if pretty {
-		//print in pretty print format
-		fmt.Printf("☁️  cloudevents.Event\n%s", event)
-	} else {
-		bytesMarshaled, err := json.Marshal(event)
-		if err != nil {
-			fmt.Printf("event error: %s", err)
-		}
-
-		//print event in raw json
-		fmt.Printf("☁️  cloudevents.Event: %s", bytesMarshaled)
+	bytesMarshaled, err := json.Marshal(event)
+	if err != nil {
+		fmt.Printf("event error: %s", err)
 	}
+
+	//print event in raw json
+	fmt.Printf("\n%s", bytesMarshaled)
 }
 
 func main() {
