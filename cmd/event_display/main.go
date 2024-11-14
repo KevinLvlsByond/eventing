@@ -65,11 +65,11 @@ func display(event cloudevents.Event) {
 	//convert event to raw json
 	bytesMarshaled, err := json.Marshal(event)
 	if err != nil {
-		fmt.Printf("event error: %s", err)
+		fmt.Printf("event error: %s\n", err)
 	}
 
 	//print event in raw json
-	fmt.Printf("\n%s", bytesMarshaled)
+	fmt.Printf("%s\n", bytesMarshaled)
 }
 
 func main() {
